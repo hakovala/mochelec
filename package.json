@@ -1,0 +1,21 @@
+{
+  "name": "mochelec",
+  "version": "0.0.0",
+  "description": "Run Mocha unit tests in Electron",
+  "author": "Harri Kovalainen <hakovala@gmail.com>",
+  "main": "index.js",
+  "bin": {
+    "mochelec": "./bin/mocha-electron"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "debug": "^2.2.0",
+    "electron": "^1.4.3",
+    "mocha": "^3.1.2"
+  },
+  "keywords": [
+    "mocha",
+    "electron"
+  ],
+  "license": "MIT"
+}
