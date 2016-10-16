@@ -1,6 +1,6 @@
 {
   "name": "mochelec",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Run Mocha unit tests in Electron",
   "author": "Harri Kovalainen <hakovala@gmail.com>",
   "main": "index.js",
