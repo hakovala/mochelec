@@ -7,7 +7,7 @@ const args = require('./lib/args');
 const mocha = require('./lib/mocha');
 const mochaOptions = require('mocha/bin/options');
 
-const debug = require('debug')('mocha-electron');
+const debug = require('debug')('mochelec');
 
 const { app, ipcMain: ipc, BrowserWindow } = require('electron');
 

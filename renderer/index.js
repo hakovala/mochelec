@@ -4,7 +4,7 @@ require('./console');
 const mocha = require('../lib/mocha');
 const { ipcRenderer: ipc } = require('electron');
 
-const debug = require('debug')('mocha-electron-renderer');
+const debug = require('debug')('mochelec:renderer');
 
 debug('loaded');
 
