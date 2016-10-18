@@ -23,7 +23,7 @@ mochaOptions();
 let opts = args.parse(process.argv);
 debug('opts: %o', opts);
 
-let tmpdir = fs.mkdtempSync(path.join(app.getPath('temp'), 'mocha-electron'));
+let tmpdir = fs.mkdtempSync(path.join(app.getPath('temp'), 'mochelec'));
 debug('tmp: %s', tmpdir);
 app.setPath('userData', tmpdir);
 
