@@ -40,7 +40,6 @@ function loadScript(url) {
 ipc.on('mocha-start', (events, args) => {
 	debug('mocha-start: %o', args);
 
-	//args.preload.forEach(addScript);
 	Promise.all(args.preload.map(loadScript))
 		.then(() => {
 			debug('all loaded');
