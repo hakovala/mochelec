@@ -2,6 +2,7 @@
 
 const path = require('path');
 const spawn = require('child_process').spawn;
+const readline = require('readline');
 const electron = require('electron');
 
 const debug = require('debug')('mochelec:cli');
@@ -11,6 +12,15 @@ args.unshift(path.join(__dirname, '../app.js'));
 
 debug('args: %o', args);
 
-let child = spawn(electron, args, { stdio: "inherit" });
+let child = spawn(electron, args, { stdio: ['inherit', 'inherit', 'pipe'] });
+
+let rl = readline.createInterface({
+	input: child.stderr
+});
+rl.on('line', (line) => {
+	// it's Electron, STFU
+	if (/^\(electron\:\d+/.test(line)) return;
+	process.stderr.write(line);
+});
 
 child.on('exit', (code) => process.exit(code));
