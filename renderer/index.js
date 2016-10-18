@@ -44,8 +44,11 @@ ipc.on('mocha-start', (events, args) => {
 		.then(() => {
 			debug('all loaded');
 			mocha.run(args, (failureCount) => {
-				debug('mocha-done: %d', failureCount);
-				ipc.send('mocha-done', failureCount);
+				// ensure that all the events have been processed before notifying application
+				setImmediate(() => {
+					debug('mocha-done: %d', failureCount);
+					ipc.send('mocha-done', failureCount);
+				});
 			});
 		})
 		.catch((err) => {
