@@ -18,9 +18,11 @@ let rl = readline.createInterface({
 	input: child.stderr
 });
 rl.on('line', (line) => {
+	// ignore empty lines
+	if (line.trim().length === 0) return;
 	// it's Electron, STFU
 	if (/^\(electron\:\d+/.test(line)) return;
-	process.stderr.write(line);
+	process.stderr.write(line + '\n');
 });
 
 child.on('exit', (code) => process.exit(code));
